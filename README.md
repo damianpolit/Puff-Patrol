@@ -6,7 +6,7 @@ Puff Patrol is open source discord bot to build global awareness about air condi
 
 #### Links:
 
-[**Invite bot to your server**](https://discord.com/api/oauth2/authorize?client_id=1173036844645109871&permissions=689342532672&scope=bot%20applications.commands) (click to invite wotking bot to your server)
+[**Invite bot to your server**](https://discord.com/api/oauth2/authorize?client_id=1173036844645109871&permissions=689342532672&scope=bot%20applications.commands) (click to invite working bot to your server)
 [**Official bot community**](https://discord.gg/RMs3d8T3cN)
 
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
