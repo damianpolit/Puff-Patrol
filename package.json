@@ -1,0 +1,35 @@
+{
+	"name": "puff-patrol",
+	"version": "0.0.1",
+	"description": "Discord Bot created to check and notify users about bad air condition in target region ✨",
+	"main": "Bot.js",
+	"license": "GNU",
+	"scripts": {
+		"test": "jest",
+		"build": "tsc",
+		"debug": "nodemon -e js,ts --watch src --exec \"yarn start:dev\"",
+		"start:dev": "yarn build && node -r dotenv/config ./dist/src/Bot.js dotenv_config_path=src/config/.env.development",
+		"start:prod": "yarn build && node -r dotenv/config ./dist/src/Bot.js dotenv_config_path=src/config/.env.production"
+	},
+	"dependencies": {
+		"@types/jest": "^29.5.2",
+		"@types/node-cron": "^3.0.11",
+		"axios": "^1.4.0",
+		"discord.js": "^14.11.0",
+		"dotenv": "^16.3.1",
+		"i18next": "^23.2.7",
+		"jest": "^29.6.0",
+		"moment": "^2.29.4",
+		"mongodb": "^6.2.0",
+		"mongoose": "^7.3.1",
+		"node-cache": "^5.1.2",
+		"node-cron": "^3.0.3",
+		"nodemon": "^2.0.22",
+		"ts-jest": "^29.1.1"
+	},
+	"devDependencies": {
+		"@types/node": "^20.3.3",
+		"ts-node": "^10.9.1",
+		"typescript": "^5.1.6"
+	}
+}
