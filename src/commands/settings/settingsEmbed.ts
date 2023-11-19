@@ -8,20 +8,16 @@ import {
 	TextInputBuilder,
 	TextInputStyle,
 } from "discord.js";
+import { t } from "i18next";
 
 export const getSettingsEmbed = () => {
 	return new EmbedBuilder()
-		.setTitle("Ustawienia bota")
-		.setDescription(
-			"Wybierz ustawienie, które chciałbyś zmodyfikować. Jeśli nie widzisz rozwijanego paska z opcjami, uruchom komende `/ustawienia` jeszcze raz. Zależnie od twoich uprawnień, ilość poleceń może się różnić. \n\nJeśli chcesz wesprzeć utrzymanie serwera, który pozwala działać botowi 24/7, wpłać dotację tutaj: **https://ko-fi.com/anae_dev**",
-		)
+		.setTitle(t("settings.name"))
+		.setDescription(t("settings.description"))
 		.setColor(0x00ffff)
 		.setThumbnail(
 			"https://upload.wikimedia.org/wikipedia/commons/6/6d/Windows_Settings_app_icon.png",
-		)
-		.setFooter({
-			text: "Bot stworzony przez Anae ❤️",
-		});
+		);
 };
 
 export const getSettingsSelectMenu = (isAdmin: boolean) => {
@@ -29,32 +25,25 @@ export const getSettingsSelectMenu = (isAdmin: boolean) => {
 		.setCustomId("settings_select")
 		.addOptions(
 			new StringSelectMenuOptionBuilder()
-				.setLabel("Ustaw swoją lokalizacje")
-				.setDescription(
-					"Kiedy masz ustawioną lokalizację, możesz używać komendy /jakość bez podawania miejsca",
-				)
+				.setLabel(t("settings.selectMenuOptions.location.label"))
+				.setDescription(t("settings.selectMenuOptions.location.description"))
 				.setValue("location")
 				.setEmoji("✅"),
 			new StringSelectMenuOptionBuilder()
-				.setLabel("Ustaw powiadomienia dzienne")
+				.setLabel(t("settings.selectMenuOptions.dailyNotifications.label"))
 				.setDescription(
-					"Wskaż godzine oraz miejsce (domyślnie - lokalizacja) z którego ma być wysyłana codzienne informacja.",
+					t("settings.selectMenuOptions.dailyNotifications.description"),
 				)
 				.setValue("daily_notifications")
 				.setEmoji("⏰"),
-			// new StringSelectMenuOptionBuilder()
-			// 	.setLabel("Ustaw powiadomienia globalne (admin only)")
-			// 	.setDescription(
-			// 		"Ustaw powiadomienie serwerowe, które będzie oznaczać rangę i informować o jakości powietrza.",
-			// 	)
-			// 	.setValue("global_notifications")
-			// 	.setEmoji("🔔"),
 		);
 	if (isAdmin) {
 		select.addOptions(
 			new StringSelectMenuOptionBuilder()
-				.setLabel("Ustaw język bota na serwerze. [ADMIN]")
-				.setDescription("Ustawienia językowe dla bota.")
+				.setLabel(t("settings.selectMenuOptions.serverLanguage.label"))
+				.setDescription(
+					t("settings.selectMenuOptions.serverLanguage.description"),
+				)
 				.setValue("server_language")
 				.setEmoji("🌐"),
 		);
@@ -63,19 +52,18 @@ export const getSettingsSelectMenu = (isAdmin: boolean) => {
 	return new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(select);
 };
 
-//LANGUAGE SELECT MENU
 export const languageSelectMenu = () => {
 	const select = new StringSelectMenuBuilder()
 		.setCustomId("serverLanguageSelectMenu")
-		.setPlaceholder("Select a language")
+		.setPlaceholder(t("settings.languageSelectMenu.placeholder"))
 		.addOptions([
 			new StringSelectMenuOptionBuilder()
-				.setLabel("Polish")
+				.setLabel(t("settings.languageSelectMenu.options.polish.label"))
 				.setValue("pl")
 				.setEmoji("🇵🇱"),
 
 			new StringSelectMenuOptionBuilder()
-				.setLabel("English")
+				.setLabel(t("settings.languageSelectMenu.options.english.label"))
 				.setValue("en")
 				.setEmoji("🇬🇧"),
 		]);
@@ -86,10 +74,10 @@ export const languageSelectMenu = () => {
 export const getLocationModal = () => {
 	const modal = new ModalBuilder()
 		.setCustomId("locationModal")
-		.setTitle("Ustaw swoją domyślną lokację");
+		.setTitle(t("settings.locationModal.title"));
 	const locationInputInit = new TextInputBuilder()
 		.setCustomId("locationInput")
-		.setLabel("Podaj domyślną lokację")
+		.setLabel(t("settings.locationModal.input.label"))
 		.setStyle(TextInputStyle.Short);
 
 	const locationInput =
@@ -103,10 +91,10 @@ export const getLocationModal = () => {
 export const getDailyNotificationsModal = (userHaveSavedLocation: boolean) => {
 	const modal = new ModalBuilder()
 		.setCustomId("dailyNotificationsModal")
-		.setTitle("Ustaw powiadomienia dzienne");
+		.setTitle(t("settings.dailyNotificationsModal.title"));
 	const dailyNotificationInputInit = new TextInputBuilder()
 		.setCustomId("dailyNotificationsInput")
-		.setLabel("Podaj godzinę otrzymywania powiadomienia")
+		.setLabel(t("settings.dailyNotificationsModal.input.label"))
 		.setStyle(TextInputStyle.Short)
 		.setMinLength(5)
 		.setMaxLength(5)
@@ -115,7 +103,7 @@ export const getDailyNotificationsModal = (userHaveSavedLocation: boolean) => {
 
 	const locationInputInit = new TextInputBuilder()
 		.setCustomId("locationInput")
-		.setLabel("Podaj domyślną lokację")
+		.setLabel(t("settings.dailyNotificationsModal.input.label"))
 		.setStyle(TextInputStyle.Short)
 		.setRequired(!userHaveSavedLocation);
 

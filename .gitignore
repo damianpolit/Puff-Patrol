@@ -2,8 +2,7 @@
 /src/config/.env.development
 /src/config/.env.production
 
-# tempolary ignore tests files
-/__tests__/*
+#local build
 node_modules
 yarn-error.log
 

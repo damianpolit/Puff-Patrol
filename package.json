@@ -3,13 +3,13 @@
 	"version": "0.0.1",
 	"description": "Discord Bot created to check and notify users about bad air condition in target region ✨",
 	"main": "Bot.js",
-	"license": "GNU",
+	"license": "GPL-3.0",
 	"scripts": {
 		"test": "jest",
 		"build": "tsc",
 		"debug": "nodemon -e js,ts --watch src --exec \"yarn start:dev\"",
 		"start:dev": "yarn build && node -r dotenv/config ./dist/src/Bot.js dotenv_config_path=src/config/.env.development",
-		"start:prod": "yarn build && node -r dotenv/config ./dist/src/Bot.js dotenv_config_path=src/config/.env.production"
+		"start:prod": "yarn build && node -r dotenv/config ./dist/Bot.js dotenv_config_path=src/config/.env.production"
 	},
 	"dependencies": {
 		"@types/jest": "^29.5.2",

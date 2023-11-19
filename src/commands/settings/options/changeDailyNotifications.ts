@@ -36,7 +36,7 @@ const changeDailyNotifications = async (
 			try {
 				location = interaction.fields.getTextInputValue("locationInput");
 			} catch (error) {
-				log(error);
+				// location is not required
 			}
 			if (location) {
 				await setUserLocation(interaction.user.id, location);
