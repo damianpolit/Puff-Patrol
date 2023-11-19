@@ -130,10 +130,9 @@ export const errorAirqualityEmbedTemplate = (target: string) => {
 		.setColor(0xff0000);
 };
 
-export const errorLocationNotSetEmbedTemplate = () => {
-	return new EmbedBuilder()
+export const errorLocationNotSetEmbedTemplate = () =>
+	new EmbedBuilder()
 		.setTitle(t("get.message.warn.locationNotSet.title"))
 		.setDescription(t("get.message.warn.locationNotSet.description"))
 		.setThumbnail(errorIcon)
 		.setColor(0xffd000);
-};

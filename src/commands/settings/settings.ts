@@ -6,7 +6,7 @@ import {
 	SlashCommandBuilder,
 } from "discord.js";
 import { Command } from "../../utils/Command";
-import { t } from "i18next";
+import i18next, { t } from "i18next";
 import { getSettingsEmbed, getSettingsSelectMenu } from "./settingsEmbed";
 import { client } from "../../Bot";
 import changeLocation from "./options/changeLocation";
@@ -15,8 +15,8 @@ import changeServerLanguage from "./options/changeServerLanguage";
 
 export const settings: Command = {
 	data: new SlashCommandBuilder()
-		.setName(t("settings.name"))
-		.setDescription(t("settings.description")),
+		.setName(t("settings.command.name"))
+		.setDescription(t("settings.command.description")),
 
 	async run(interaction: CommandInteraction) {
 		const member = interaction.member as GuildMember;
